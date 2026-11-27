@@ -89,7 +89,7 @@ Invoke a skill by its slash command, or with `$<name>` in Codex. `/poteto-mode` 
 
 ## Principles
 
-poteto-mode grounds its decisions in 24 principles. Each is a `principle-*` skill in [`skills/`](./skills/), indexed in [poteto-mode](./skills/poteto-mode/SKILL.md#principles).
+poteto-mode grounds its decisions in 21 principles. Each is a `principle-*` skill in [`skills/`](./skills/), indexed in [poteto-mode](./skills/poteto-mode/SKILL.md#principles).
 
 ## Subagents
 
