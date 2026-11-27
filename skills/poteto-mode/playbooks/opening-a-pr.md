@@ -1,7 +1,5 @@
 ### Opening a PR
 
-Invoked at the end of every other playbook.
-
 Work from a git worktree off trunk, and keep unrelated work out of it. Rebase into small, landable commits. Strip AI slop from the diff before commit: comments that narrate code, needless defensive checks, casts and wrappers, and code that breaks the file's style.
 
 Title: `type(scope): subject`, naming a real symbol when one carries the change. Body: a one-minute briefing of 40 lines at most with these `##` headings in order, dropping empty ones: `## Why`, `## What changed`, `## Scope`, `## Tradeoffs` (only rejected alternatives a reviewer would otherwise ask about), `## Blast Radius`, `## Verification`.
