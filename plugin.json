@@ -3,5 +3,16 @@
   "name": "pstack-fork",
   "displayName": "pstack-fork",
   "version": "0.1.0",
-  "description": "Fork of pstack. Write less, higher-quality code with rigorous agent workflows you can parallelize with confidence."
+  "description": "Fork of pstack. Write less, higher-quality code with rigorous agent workflows you can parallelize with confidence.",
+  "license": "MIT",
+  "homepage": "https://github.com/1504101951/pstack-fork",
+  "keywords": [
+    "pstack",
+    "poteto-mode",
+    "workflow",
+    "principles",
+    "agent-style",
+    "subagents",
+    "unslop"
+  ]
 }

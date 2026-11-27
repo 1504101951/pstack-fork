@@ -27,7 +27,7 @@ Write each subagent as a user-level subagent in your agent's own format and fold
 - `name` and `description` come from the source frontmatter, unchanged.
 - The prompt body comes from the source file, verbatim.
 - Set the model and effort the user picked. For "same as the parent session", leave the model unset or use your agent's inherit value.
-- Unless necessary, a subagent inherits the parent agent's tool list by default.
+- Unless there is a special case, a subagent inherits the parent agent's tools.
 - Write no field your agent does not support.
 
 Overwrite an existing subagent with the same name, so a re-run updates it.

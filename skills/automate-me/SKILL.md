@@ -26,7 +26,7 @@ Update mode changes the rest of the flow:
 
 ### 1. Mine their history
 
-Locate the active workspace's transcripts before fanning out. They are the current agent's local session transcripts for that workspace. Find that folder yourself. If you cannot find it, ask the user. Use only those. Don't read transcripts of other workspaces. That crosses workspace boundaries and reads private chats from unrelated projects.
+Locate the active workspace's transcripts before fanning out. They are the current agent's local session transcripts for that workspace. Find that folder yourself. If you cannot find it, ask the user. When a subagent runs this step, it does not ask: it puts the question in its report for the parent to ask. Use only those. Don't read transcripts of other workspaces. That crosses workspace boundaries and reads private chats from unrelated projects.
 
 Survey recent agent conversations within that scope for recurring patterns. Run multiple parallel subagents across slices of history (e.g. last 2-4 weeks, split into 3 slices so each has enough material). Each slice mining subagent reads transcripts from the workspace-scoped path the parent provides, looks for the signals below, and returns a short structured list of patterns it saw with evidence pointers. Default signals worth hunting:
 
