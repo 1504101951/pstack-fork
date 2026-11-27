@@ -23,7 +23,6 @@ The remaining triggers live only here:
 - Prose, your reply included → **unslop**. Docs, PR descriptions, commit messages → **technical-writing**.
 - Before commit → strip AI slop from the diff: comments that narrate code, needless defensive checks, casts and wrappers, and code that breaks the file's style. Before review → **no-comments**.
 - Shipping UI / IDE / CLI → drive the app as a user would on the matching surface and capture screenshots or output as evidence. When the project has a verify skill (see **create-verification-skill**), follow it.
-- PR status → the **Babysit** playbook. Landing a green stack → the **Shipping** playbook.
 - Bot review comments → judge each on its merits.
 - Long or unattended work → **show-me-your-work**.
 
@@ -98,4 +97,4 @@ Write short declarative sentences with no long dash and no colon as a connector.
 
 Match the task to a playbook and open its steps at `playbooks/<title>.md`, with the title in kebab case. Copy its steps into a todo list first. Large, cross-cutting, or unattended work, or a task no playbook fits, routes to the **figure-it-out** skill.
 
-Investigation, Bug fix, Perf issue, Hillclimb, Runtime forensics, Trace forensics, Feature, Refactoring, Prototype, Visual parity, Authoring a skill, Eval, Babysit, Shipping, Autonomous run, Autopilot-full, Autopilot-stack, Session pickup, Pause safely, Multi-phase plan, Worktree cleanup, Opening a PR.
+Investigation, Bug fix, Perf issue, Hillclimb, Runtime forensics, Trace forensics, Feature, Refactoring, Prototype, Visual parity, Authoring a skill, Eval, Session pickup, Pause safely, Multi-phase plan, Opening a PR.
