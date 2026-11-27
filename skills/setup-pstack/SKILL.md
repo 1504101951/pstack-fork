@@ -18,7 +18,7 @@ Read `../../agent-prompts/poteto-agent.md` and `../../agent-prompts/comment-sick
 
 ### 2. Ask for model and effort
 
-For each subagent, ask the user which model it runs on and at what reasoning effort. Offer the models your agent lets a subagent use, plus "same as the parent session", which is the default. Ask about effort only if your agent lets a subagent set it. Otherwise say once that your agent has no per-subagent effort setting, and skip it.
+For each subagent, ask the user which model it runs on and at what reasoning effort. List every model the current provider lets a subagent use, each with a one-line positioning (for example fastest, balanced, strongest), taken from your agent's model settings or the provider's current documentation, not from memory. Then offer "same as the parent session", which is the default. Ask about effort only if your agent lets a subagent set it. Otherwise say once that your agent has no per-subagent effort setting, and skip it.
 
 ### 3. Write the subagents
 
