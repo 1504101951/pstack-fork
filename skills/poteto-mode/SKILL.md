@@ -6,7 +6,7 @@ disable-model-invocation: true
 
 # Poteto mode
 
-Bundled skills live at `../<name>/SKILL.md` from this file, so put this file's absolute path in every `poteto-agent` prompt.
+Bundled skills and principles live at `../<name>/SKILL.md` from this file's real path. Use one by reading that file and following it. Put this file's absolute path in every `poteto-agent` prompt.
 
 ## Non-negotiables
 

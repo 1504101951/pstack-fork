@@ -104,3 +104,5 @@ Run a description-optimization loop only if the skill's trigger accuracy turns o
 - User wants a task-specific skill (not working conventions): write the SKILL.md in the Agent Skills format alone, no mining required.
 - User wants to capture one narrow workflow (e.g. "how I write commit messages"). That's a regular skill, not a mode skill.
 
+
+To use another skill or principle this file names, read its `../<name>/SKILL.md`, resolved from this file's real path, and follow it.

@@ -68,3 +68,5 @@ One document, one mode. Don't mix modes. Split and link instead.
 - PR descriptions and commit messages are writing too. Every layer except Diátaxis applies to them. A PR body is a briefing that a reviewer can read in under a minute. Do not paste agent logs, SHA lists, or metric tables. Link them.
 - Product UI strings are not documentation. Use your product's copy guidelines for those.
 - Indent code snippets with tabs. Write real paths. Make every count or tree claim true at the commit that lands it, and include the command that regenerates it.
+
+To use another skill or principle this file names, read its `../<name>/SKILL.md`, resolved from this file's real path, and follow it.

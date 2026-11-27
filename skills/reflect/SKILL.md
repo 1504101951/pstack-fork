@@ -14,4 +14,4 @@ Keep a finding only if it will still hold in six months, would change what a fut
 
 Present Accepted (problem, proposal, skill), Rejected (reason) and Backlog, and wait for approval before editing any skill.
 
-Never edit the installed plugin's files. Before approval, show its destination, `.agents/skills/<skill>/` in the project or the current agent's user skills folder. After approval, copy the skill folder there and edit the copy. Never open a PR or push.
+Edit a skill only in the user's own source. For a pstack-fork skill, that is the user's pstack-fork clone: follow the installed skill folder's symlink to it, or ask the user for the clone path when the skill was installed as a plugin copy. Never edit an installed plugin copy. Before approval, show the file you will edit. After approval, edit it in place and leave committing to the user. Never open a PR or push. When agy installed the skill through `agy plugin install`, tell the user to run it again to pick up the edit.
