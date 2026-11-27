@@ -51,4 +51,4 @@ Check the whole against the Phase A predicate on the real product, not just the 
 
 **Reply:** the playbook you designed, the rigor level and why, the decision-trail path, what's verified against the predicate, and what's still open.
 
-To use another skill or principle this file names, read its `../<name>/SKILL.md`, resolved from this file's real path, and follow it.
+To use another skill or principle this file names, read its SKILL.md from the skills folder that holds this skill, resolved from this file's real path: `../<name>/SKILL.md` for a skill, and `../principle-<name>/SKILL.md` for a principle named without its `principle-` prefix. Then follow it.

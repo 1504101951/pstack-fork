@@ -20,4 +20,4 @@ Write every response through the **unslop** skill, in plain spoken English, the 
 
 **Reply:** the explanation itself, never a report about what you did or delivered. Lead with the main point, then the plain account of what it is, how it works, and why, and the threads worth chasing with `how` or `why`.
 
-To use another skill or principle this file names, read its `../<name>/SKILL.md`, resolved from this file's real path, and follow it.
+To use another skill or principle this file names, read its SKILL.md from the skills folder that holds this skill, resolved from this file's real path: `../<name>/SKILL.md` for a skill, and `../principle-<name>/SKILL.md` for a principle named without its `principle-` prefix. Then follow it.

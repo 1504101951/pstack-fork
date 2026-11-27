@@ -49,4 +49,4 @@ Write it through `unslop`, cite real code, and strip anything private before it 
 
 **Reply:** the writeup above, with the one safety fact either proven or marked unproven.
 
-To use another skill or principle this file names, read its `../<name>/SKILL.md`, resolved from this file's real path, and follow it.
+To use another skill or principle this file names, read its SKILL.md from the skills folder that holds this skill, resolved from this file's real path: `../<name>/SKILL.md` for a skill, and `../principle-<name>/SKILL.md` for a principle named without its `principle-` prefix. Then follow it.

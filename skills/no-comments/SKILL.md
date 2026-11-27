@@ -16,7 +16,7 @@ Use the caller's files or diff. Otherwise use the current diff against the base 
 
 ## Steps
 
-1. Spawn the `comment-sicko` subagent. If this agent has no subagent with that name, stop and tell the user to run `/setup-pstack`. The first line of its brief is `Read <absolute path of ../poteto-mode/worker.md>`, resolved from this file's real path. Pass the scope. Do not restate its rules.
+1. Spawn the `comment-sicko` subagent. If this agent has no subagent with that name, stop and tell the user to run `/setup-pstack`. The first line of its brief is `Read <path>/worker.md before anything else.`, where `<path>` is the absolute path of `../poteto-mode/`, resolved from this file's real path. Pass the scope. Do not restate its rules.
 2. Check its report and diff against comment-sicko's rules.
    - Reject any edit to application code, any change outside the scope, and any deletion of a comment that a keep exception protects.
    - Reject a `MUST KILL` flag whose reason is wrong, or that marks deliberate code as a problem. A flag on a surprise in our own code stays a valid `MUST KILL`. Do not restore that comment.
@@ -30,4 +30,4 @@ Use the caller's files or diff. Otherwise use the current diff against the base 
 5. Constraint comments say `do not remove`, `do not change wording`, or `talk to X before changing`. Leave keeps about things we cannot change. For the rest, add the cheapest in-scope type, runtime check, test, or CI lint that enforces the constraint, then delete the comment. These changes are reversible, so do not wait for approval. When no in-scope encoding exists, delete the comment, report the constraint open, and sketch the out-of-scope work.
 6. Report the deletion count, restored comments, reruns, architect sketch, fixes, encodings, unenforced constraints, and other open work.
 
-To use another skill or principle this file names, read its `../<name>/SKILL.md`, resolved from this file's real path, and follow it.
+To use another skill or principle this file names, read its SKILL.md from the skills folder that holds this skill, resolved from this file's real path: `../<name>/SKILL.md` for a skill, and `../principle-<name>/SKILL.md` for a principle named without its `principle-` prefix. Then follow it.

@@ -6,7 +6,7 @@ disable-model-invocation: true
 
 # Poteto mode
 
-Bundled skills and principles live at `../<name>/SKILL.md` from this file's real path. Use one by reading that file and following it. Put this file's absolute path in every `poteto-agent` prompt.
+Bundled skills live at `../<name>/SKILL.md` from this file's real path, and a principle named without its `principle-` prefix lives at `../principle-<name>/SKILL.md`. From a playbook in `playbooks/`, the skills folder is `../../`. Use one by reading that file and following it. Put this file's absolute path in every `poteto-agent` prompt.
 
 ## Non-negotiables
 

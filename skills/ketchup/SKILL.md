@@ -42,4 +42,4 @@ Keep each visual small enough to read at a glance: at most six boxes, with at mo
 
 Embed screenshots and videos inline when the change is visible, not only as links. If a visible change has none, mark its summary line "No screenshot yet," and say there what changed on screen. Draw diagrams and charts from facts you have: a Mermaid diagram for how things connect and a chart for numbers, drawn with the agent's own chart tool. Never invent a number, and never draw or generate a picture of a screen you did not capture. Link only artifacts that exist.
 
-To use another skill or principle this file names, read its `../<name>/SKILL.md`, resolved from this file's real path, and follow it.
+To use another skill or principle this file names, read its SKILL.md from the skills folder that holds this skill, resolved from this file's real path: `../<name>/SKILL.md` for a skill, and `../principle-<name>/SKILL.md` for a principle named without its `principle-` prefix. Then follow it.

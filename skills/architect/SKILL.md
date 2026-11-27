@@ -10,4 +10,4 @@ Before writing code, trace every system the change touches, then sketch two diff
 
 For a large or contested design, run the **arena** skill instead of sketching alone.
 
-To use another skill or principle this file names, read its `../<name>/SKILL.md`, resolved from this file's real path, and follow it.
+To use another skill or principle this file names, read its SKILL.md from the skills folder that holds this skill, resolved from this file's real path: `../<name>/SKILL.md` for a skill, and `../principle-<name>/SKILL.md` for a principle named without its `principle-` prefix. Then follow it.

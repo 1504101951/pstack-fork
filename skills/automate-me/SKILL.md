@@ -105,4 +105,4 @@ Run a description-optimization loop only if the skill's trigger accuracy turns o
 - User wants to capture one narrow workflow (e.g. "how I write commit messages"). That's a regular skill, not a mode skill.
 
 
-To use another skill or principle this file names, read its `../<name>/SKILL.md`, resolved from this file's real path, and follow it.
+To use another skill or principle this file names, read its SKILL.md from the skills folder that holds this skill, resolved from this file's real path: `../<name>/SKILL.md` for a skill, and `../principle-<name>/SKILL.md` for a principle named without its `principle-` prefix. Then follow it.

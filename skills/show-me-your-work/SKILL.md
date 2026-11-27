@@ -81,4 +81,4 @@ Read top to bottom, follow the evidence pointers, spot-check. GitHub renders a c
 
 Other skills route their audit trail here instead of inventing one. Reference it by name and let it own the format. Don't restate the columns.
 
-To use another skill or principle this file names, read its `../<name>/SKILL.md`, resolved from this file's real path, and follow it.
+To use another skill or principle this file names, read its SKILL.md from the skills folder that holds this skill, resolved from this file's real path: `../<name>/SKILL.md` for a skill, and `../principle-<name>/SKILL.md` for a principle named without its `principle-` prefix. Then follow it.
