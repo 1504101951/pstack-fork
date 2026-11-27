@@ -9,6 +9,8 @@ set -euo pipefail
 
 REPO_URL="https://github.com/1504101951/pstack-fork.git"
 REPO_DIR="$HOME/pstack-fork"
+# agy 安装插件后存放插件的目录，用来判断 agy 是否已安装 pstack-fork。
+AGY_PLUGIN_DIR="$HOME/.gemini/config/plugins/pstack-fork"
 
 # 支持的 agent 统一登记在这张表里，每行一个，字段用 | 分隔：
 #   命令名 | 显示名称 | 技能链接目录（为空表示用插件方式安装）| 安装后要运行的命令
@@ -62,14 +64,36 @@ detect_agents() {
   printf '%s\n' $found
 }
 
+# 函数作用：判断某个 agent 是否已安装 pstack-fork。
+#           链接方式：技能目录里的 poteto-mode 是指向本仓库的链接；插件方式：agy 的插件目录存在。
+# 参数：$1 命令名。
+# 返回：已安装时退出码为 0，否则非 0。
+is_installed() {
+  local dir
+  dir=$(agent_field "$1" 3)
+  if [ -n "$dir" ]; then
+    [ "$(readlink "$dir/poteto-mode" 2>/dev/null)" = "$REPO_DIR/skills/poteto-mode" ]
+    return
+  fi
+  [ -d "$AGY_PLUGIN_DIR" ]
+}
+
 # 函数作用：用方向键菜单让用户勾选要安装的 agent。↑↓（或 k/j）移动，空格勾选或取消，回车确认，默认全选。
 #           通过 /dev/tty 读键盘、画菜单，因为用 curl | bash 运行时标准输入是脚本本身。
+#           已安装的项在右边标注：勾选时为"已安装，将更新"，未勾选时为"已安装"。
 #           选择期间隐藏光标；退出时（包括 Ctrl+C）由 trap 恢复光标。
 # 参数：$@ 检测到的命令名列表。
 # 返回：每行打印一个选中的命令名；一个都没选时结束脚本。
 choose_agents() {
-  local names=("$@") marks=() n=$# cur=0 drawn=0 i key rest box ptr picked=""
-  for ((i = 0; i < n; i++)); do marks[i]=1; done
+  local names=("$@") marks=() labels=() installed=() n=$# cur=0 drawn=0 width=0 i key rest box ptr note picked=""
+  # 预先算好名称、安装状态和名称列宽，重画时不再重复计算。
+  for ((i = 0; i < n; i++)); do
+    marks[i]=1
+    labels[i]=$(agent_field "${names[i]}" 2)
+    installed[i]=0
+    is_installed "${names[i]}" && installed[i]=1
+    [ "${#labels[i]}" -gt "$width" ] && width=${#labels[i]}
+  done
   trap 'printf "\033[?25h" >/dev/tty' EXIT
   trap 'exit 130' INT
   printf '\033[?25l' >/dev/tty
@@ -80,7 +104,10 @@ choose_agents() {
     for ((i = 0; i < n; i++)); do
       box="[ ]"; [ "${marks[i]}" = 1 ] && box="[x]"
       ptr="  "; [ "$i" = "$cur" ] && ptr="> "
-      printf '\033[2K%s%s %s\n' "$ptr" "$box" "$(agent_field "${names[i]}" 2)" >/dev/tty
+      note=""
+      [ "${installed[i]}" = 1 ] && note="（已安装）"
+      [ "${installed[i]}" = 1 ] && [ "${marks[i]}" = 1 ] && note="（已安装，将更新）"
+      printf '\033[2K%s%s %-*s  %s\n' "$ptr" "$box" "$width" "${labels[i]}" "$note" >/dev/tty
     done
     drawn=1
     IFS= read -rsn1 key </dev/tty
@@ -104,7 +131,8 @@ choose_agents() {
 }
 
 # 函数作用：把仓库里的每个技能目录软链接到 agent 的技能目录。
-#           先检查冲突再动手：目标位置已有同名的真实目录或文件时报错停下，不覆盖用户原有的技能。
+#           先检查冲突再动手：目标位置已有同名、且不是指向本仓库的目录、文件或链接时报错停下，
+#           不覆盖用户原有的技能。
 #           同时删掉指向本仓库、但技能已不存在的旧链接，所以重复运行等于更新。
 # 参数：$1 agent 的技能目录（绝对路径）。
 # 返回：无；有冲突时结束脚本。
@@ -113,9 +141,10 @@ link_skills() {
   mkdir -p "$target"
   for src in "$REPO_DIR"/skills/*/; do
     name=$(basename "$src")
-    [ -e "$target/$name" ] && [ ! -L "$target/$name" ] && conflicts="$conflicts $name"
+    [ -e "$target/$name" ] || [ -L "$target/$name" ] || continue
+    [ "$(readlink "$target/$name")" = "$REPO_DIR/skills/$name" ] || conflicts="$conflicts $name"
   done
-  [ -z "$conflicts" ] || die "$target 里已有同名的目录或文件：${conflicts# }。请先移走它们，再重新运行。"
+  [ -z "$conflicts" ] || die "$target 里已有同名的技能：${conflicts# }。请先移走它们，再重新运行。"
   # 清理指向本仓库但已失效的旧链接。
   for link in "$target"/*; do
     [ -L "$link" ] || continue
@@ -128,7 +157,9 @@ link_skills() {
   done
 }
 
-# 函数作用：为一个 agent 安装 pstack-fork。有技能链接目录的用软链接，没有的（agy）用插件方式。
+# 函数作用：为一个 agent 安装或更新 pstack-fork。有技能链接目录的用软链接，没有的（agy）用插件方式。
+#           agy 已安装时先卸载再安装，因为 agy 没有更新命令，文档也没说明重复安装的行为。
+#           先校验再卸载，校验失败就停下，避免旧插件已卸掉、新插件又装不上。
 # 参数：$1 命令名。
 # 返回：无；安装失败时结束脚本。
 install_agent() {
@@ -140,6 +171,7 @@ install_agent() {
     return
   fi
   agy plugin validate "$REPO_DIR"
+  is_installed agy && agy plugin uninstall pstack-fork
   agy plugin install "$REPO_DIR"
 }
 
