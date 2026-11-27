@@ -62,27 +62,45 @@ detect_agents() {
   printf '%s\n' $found
 }
 
-# 函数作用：让用户从检测到的 agent 里勾选要安装的。
-#           通过 /dev/tty 读输入，因为用 curl | bash 运行时标准输入是脚本本身。
+# 函数作用：用方向键菜单让用户勾选要安装的 agent。↑↓（或 k/j）移动，空格勾选或取消，回车确认，默认全选。
+#           通过 /dev/tty 读键盘、画菜单，因为用 curl | bash 运行时标准输入是脚本本身。
+#           选择期间隐藏光标；退出时（包括 Ctrl+C）由 trap 恢复光标。
 # 参数：$@ 检测到的命令名列表。
-# 返回：每行打印一个选中的命令名；输入编号无效时结束脚本。
+# 返回：每行打印一个选中的命令名；一个都没选时结束脚本。
 choose_agents() {
-  local i=1 cmd choice n
-  echo "检测到以下 AI：" >/dev/tty
-  for cmd in "$@"; do
-    printf '  %d) %s\n' "$i" "$(agent_field "$cmd" 2)" >/dev/tty
-    i=$((i + 1))
-  done
-  printf '输入要安装的编号，用空格分隔；直接回车表示全部安装：' >/dev/tty
-  read -r choice </dev/tty
-  [ -n "$choice" ] || { printf '%s\n' "$@"; return; }
-  for n in $choice; do
-    case "$n" in
-      ''|*[!0-9]*) die "无效的编号：$n" ;;
+  local names=("$@") marks=() n=$# cur=0 drawn=0 i key rest box ptr picked=""
+  for ((i = 0; i < n; i++)); do marks[i]=1; done
+  trap 'printf "\033[?25h" >/dev/tty' EXIT
+  trap 'exit 130' INT
+  printf '\033[?25l' >/dev/tty
+  echo "检测到以下 AI（↑↓ 移动，空格 勾选/取消，回车 确认）：" >/dev/tty
+  while :; do
+    # 第二次起先把光标移回菜单第一行，再逐行覆盖重画。
+    [ "$drawn" = 1 ] && printf '\033[%dA' "$n" >/dev/tty
+    for ((i = 0; i < n; i++)); do
+      box="[ ]"; [ "${marks[i]}" = 1 ] && box="[x]"
+      ptr="  "; [ "$i" = "$cur" ] && ptr="> "
+      printf '\033[2K%s%s %s\n' "$ptr" "$box" "$(agent_field "${names[i]}" 2)" >/dev/tty
+    done
+    drawn=1
+    IFS= read -rsn1 key </dev/tty
+    # 方向键是 ESC [ A / ESC [ B 三个字节，读到 ESC 后再读两个字节。
+    if [ "$key" = $'\e' ]; then
+      IFS= read -rsn2 rest </dev/tty
+      key="$rest"
+    fi
+    case "$key" in
+      '[A'|k) cur=$(((cur + n - 1) % n)) ;;
+      '[B'|j) cur=$(((cur + 1) % n)) ;;
+      ' ') marks[cur]=$((1 - marks[cur])) ;;
+      '') break ;;
     esac
-    [ "$n" -ge 1 ] && [ "$n" -le "$#" ] || die "无效的编号：$n"
-    eval "printf '%s\n' \"\${$n}\""
-  done | awk '!seen[$0]++'
+  done
+  for ((i = 0; i < n; i++)); do
+    [ "${marks[i]}" = 1 ] && picked="$picked ${names[i]}"
+  done
+  [ -n "$picked" ] || die "未选择任何 AI。"
+  printf '%s\n' $picked
 }
 
 # 函数作用：把仓库里的每个技能目录软链接到 agent 的技能目录。
