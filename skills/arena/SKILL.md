@@ -1,6 +1,6 @@
 ---
 name: arena
-description: "Spawn N parallel candidates at the same task, pick a base, graft the strongest parts of the losers into it. Use for /arena, 'arena this', 'throw it in the arena', or when one attempt at a non-trivial artifact would lock in the wrong shape."
+description: "针对同一任务并行派出 N 个候选方案，选定一个作为基础，把落选方案中最强的部分嫁接进去。适用于 /arena、'arena this'、'throw it in the arena'，或者对一个非平凡的产物只尝试一次就会锁定错误形态的情况。"
 disable-model-invocation: true
 ---
 

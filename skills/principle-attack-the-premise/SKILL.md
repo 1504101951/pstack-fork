@@ -1,6 +1,6 @@
 ---
 name: principle-attack-the-premise
-description: "Apply when two or more fixes that share one premise have failed the same gate. Write the premise down and test it directly before you write another fix that assumes it."
+description: "当两个或更多共用同一前提的修复在同一道关卡上都失败时适用。先把前提写下来并直接测试它，再去写下一个依赖这个前提的修复。"
 disable-model-invocation: true
 ---
 

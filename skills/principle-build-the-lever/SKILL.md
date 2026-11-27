@@ -1,6 +1,6 @@
 ---
 name: principle-build-the-lever
-description: "Apply to any non-trivial work, not just bulk work: edits, migrations, analyses, checks. Build the tool that does it or proves it (codemod, script, generator, or a skill your subagents follow) instead of working by hand. The tool is the artifact a reviewer can rerun."
+description: "适用于任何非平凡的工作，不只是批量工作：编辑、迁移、分析、检查。构建出完成它或证明它的工具（codemod、脚本、生成器，或你的子智能体遵循的技能），而不是手工去做。这个工具就是审阅者可以重新运行的产物。"
 disable-model-invocation: true
 ---
 

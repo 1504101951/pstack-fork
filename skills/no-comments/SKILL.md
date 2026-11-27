@@ -1,6 +1,6 @@
 ---
 name: no-comments
-description: "Spawn Comment Sicko, fix accepted findings, and offer encodings for claimed constraints."
+description: "派出 Comment Sicko，修复被接受的发现，并为声称的约束提供编码方案。"
 disable-model-invocation: true
 ---
 

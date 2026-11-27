@@ -1,6 +1,6 @@
 ---
 name: bro
-description: Restate the last message in plain human language, with no jargon.
+description: "用普通人的语言复述上一条消息，不用行话。"
 disable-model-invocation: true
 ---
 

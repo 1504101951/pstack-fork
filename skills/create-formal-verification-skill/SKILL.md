@@ -1,6 +1,6 @@
 ---
 name: create-formal-verification-skill
-description: "Generate a project-local skill that formally verifies the code where a bug costs the most and tests reach the least, in any language, with whichever verification tool fits. Use for /create-formal-verification-skill, \"model-check this race\", \"prove this invariant\", or when concurrency, retries, state machines, parsers, or unsafe code need more than tests."
+description: "生成一个项目本地的技能，对出错代价最高、测试覆盖最少的代码做形式化验证，支持任何语言，使用最合适的验证工具。适用于 /create-formal-verification-skill、\"model-check this race\"、\"prove this invariant\"，或者并发、重试、状态机、解析器或 unsafe 代码需要比测试更强保障的时候。"
 disable-model-invocation: true
 ---
 

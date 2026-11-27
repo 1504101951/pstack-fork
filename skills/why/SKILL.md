@@ -1,6 +1,6 @@
 ---
 name: why
-description: "Use for 'why does X work this way', 'why we picked Y', design rationale, regressions, postmortems, or data-backed thresholds. Returns a cited read on decisions and tradeoffs. Use how for runtime behavior."
+description: "适用于 'why does X work this way'、'why we picked Y'、设计缘由、回归、事后复盘或有数据支撑的阈值。返回对决策和取舍的、带引用的解读。涉及运行时行为时用 how。"
 disable-model-invocation: true
 ---
 

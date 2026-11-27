@@ -1,6 +1,6 @@
 ---
 name: correct
-description: "Find the mistakes agents keep repeating in this repo and make each one impossible. Try architecture first, then types, then a lint whose error names the fix, then a test, and write docs last. Prove each check fails on a real past mistake. Repeat this each time the operator corrects you. Use for /correct."
+description: "找出 agent 在这个仓库里反复犯的错误，并让每一个都不可能再发生。先试架构，再试类型，再试一条报错信息会指出修法的 lint，然后是测试，文档最后写。证明每项检查都会在一个真实的历史错误上失败。每次操作者纠正你时都重复这一过程。适用于 /correct。"
 disable-model-invocation: true
 ---
 

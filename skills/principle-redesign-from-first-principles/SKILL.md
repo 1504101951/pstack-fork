@@ -1,6 +1,6 @@
 ---
 name: principle-redesign-from-first-principles
-description: "Apply when integrating a new requirement into an existing design."
+description: "在把新需求整合进现有设计时适用。"
 disable-model-invocation: true
 ---
 

@@ -1,6 +1,6 @@
 ---
 name: principle-foundational-thinking
-description: "Apply before writing logic: choosing core types and data structures, sequencing scaffold-vs-feature work, asking what concurrent actors share. Get the data structures right so downstream code becomes obvious."
+description: "在写逻辑之前适用：选择核心类型和数据结构、安排脚手架与功能工作的先后顺序、追问并发的参与者共享什么。把数据结构定对，下游代码就会变得显而易见。"
 disable-model-invocation: true
 ---
 

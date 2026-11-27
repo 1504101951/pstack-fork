@@ -1,6 +1,6 @@
 ---
 name: automate-me
-description: "Use for \"automate me\", \"create/update/refresh my -mode skill\", \"turn/capture my preferences or working style into a skill\", or wanting agents to follow how the user works. Drafts or revises a personal -mode skill in the Agent Skills format with unslop, optionally pulling fresh evidence from recent transcripts."
+description: "适用于 \"automate me\"、\"create/update/refresh my -mode skill\"、\"turn/capture my preferences or working style into a skill\"，或者希望 agent 遵循用户的工作方式。用 unslop 以 Agent Skills 格式起草或修订个人的 -mode 技能，可选择从近期对话记录中提取新的证据。"
 disable-model-invocation: true
 ---
 

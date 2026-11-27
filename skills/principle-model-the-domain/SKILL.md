@@ -1,6 +1,6 @@
 ---
 name: principle-model-the-domain
-description: "Apply when writing stateful logic, or when code branches a lot or repeats a shape assumption across files."
+description: "在编写有状态逻辑，或者代码分支很多、或在多个文件里重复同一个形态假设时适用。"
 disable-model-invocation: true
 ---
 

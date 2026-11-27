@@ -1,6 +1,6 @@
 ---
 name: figure-it-out
-description: "Design an auditable playbook when no narrower one fits: a large migration, an ambitious multi-part change, or work a human reviews after stepping away. Scales rigor to the task, runs a hypothesis loop, and logs decisions. Use for /figure-it-out or 'figure it out'."
+description: "当没有更窄的 playbook 合适时，设计一份可审计的 playbook：大型迁移、雄心勃勃的多部分变更，或者人在离开后才会审阅的工作。根据任务调整严谨程度，运行假设循环，并记录决策。适用于 /figure-it-out 或 'figure it out'。"
 disable-model-invocation: true
 ---
 

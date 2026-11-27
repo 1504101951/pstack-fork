@@ -1,6 +1,6 @@
 ---
 name: principle-explain-the-number
-description: "Apply before you measure, and before you trust, report, or act on a number you measured: a speedup, a regression, a throughput, a latency, or an eval result. Find what limits it, and rule out that it measured something other than the work you think."
+description: "在你测量之前，以及在你信任、汇报或依据一个测得的数字行动之前适用：加速比、性能退化、吞吐量、延迟或评测结果。找出是什么限制了它，并排除它测量的其实不是你以为的那项工作。"
 disable-model-invocation: true
 ---
 

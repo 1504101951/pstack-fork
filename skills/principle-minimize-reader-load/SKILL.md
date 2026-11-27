@@ -1,6 +1,6 @@
 ---
 name: principle-minimize-reader-load
-description: "Apply when reviewing or shaping code that's hard to trace. Count layers between question and answer, and hidden state in the reader's head; collapse one-caller wrappers and shrink mutable scope."
+description: "在审查或调整难以追踪的代码时适用。数一数从问题到答案之间有几层，以及读者脑子里有多少隐藏状态；折叠只有一个调用者的包装层，缩小可变状态的作用域。"
 disable-model-invocation: true
 ---
 

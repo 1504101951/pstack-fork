@@ -1,6 +1,6 @@
 ---
 name: maintain-verification-skill
-description: "Manual pass that keeps a project's verification skill and feature map honest: parallel source readers per feature, one live session driving every feature, at most one PR of proven corrections. Use for /maintain-verification-skill or \"audit the verify skill\"."
+description: "手动执行的一轮检查，让项目的验证技能和功能地图保持真实：按功能并行阅读源码，用一个实时会话驱动每个功能，最多提交一个包含已验证修正的 PR。适用于 /maintain-verification-skill 或 \"audit the verify skill\"。"
 disable-model-invocation: true
 ---
 

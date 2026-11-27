@@ -1,6 +1,6 @@
 ---
 name: principle-type-system-discipline
-description: "Apply when designing types, reviewing a function signature, or writing code in any statically-typed language. Make illegal states unrepresentable, brand semantic primitives, parse external data at boundaries, exhaust variants, derive from authoritative schemas."
+description: "在设计类型、审查函数签名，或用任何静态类型语言写代码时适用。让非法状态无法表示，给有语义的原始类型加品牌（brand），在边界处解析外部数据，穷尽所有变体，从权威的 schema 推导。"
 disable-model-invocation: true
 ---
 

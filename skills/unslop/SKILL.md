@@ -1,6 +1,6 @@
 ---
 name: unslop
-description: Cut AI tells from any writing.
+description: "去除任何文字里的 AI 痕迹。"
 disable-model-invocation: true
 ---
 

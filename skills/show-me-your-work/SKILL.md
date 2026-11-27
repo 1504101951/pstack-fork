@@ -1,6 +1,6 @@
 ---
 name: show-me-your-work
-description: "Keep a reviewable decision trail for long-running or unattended work: a TSV log with one row per decision (what, why, evidence, result). Local by default; commit it when a reviewer needs the trail to trust the result. Use for /show-me-your-work, autonomous or multi-phase runs, or work a human reviews after stepping away."
+description: "为长时间运行或无人值守的工作保留一份可审阅的决策轨迹：一个 TSV 日志，每个决策一行（做了什么、为什么、证据、结果）。默认保存在本地；当审阅者需要这份轨迹才能信任结果时再提交。适用于 /show-me-your-work、自主或多阶段的运行，或者人在离开后才会审阅的工作。"
 disable-model-invocation: true
 ---
 

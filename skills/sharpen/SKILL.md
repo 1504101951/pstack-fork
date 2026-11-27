@@ -1,6 +1,6 @@
 ---
 name: sharpen
-description: "Make a task deeper, not bigger, then rewrite the prompt. Use for /sharpen."
+description: "让任务更深，而不是更大，然后重写提示词。适用于 /sharpen。"
 disable-model-invocation: true
 ---
 

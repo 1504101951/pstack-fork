@@ -1,6 +1,6 @@
 ---
 name: principle-separate-before-serializing-shared-state
-description: "Apply when concurrent actors might write to the same file, branch, key, or state object. Eliminate the sharing first; serialize structurally only when one shared writer is a real invariant."
+description: "当并发的参与者可能写入同一个文件、分支、键或状态对象时适用。先消除共享；只有当存在唯一的共享写入者确实是一条不变量时，才从结构上做串行化。"
 disable-model-invocation: true
 ---
 

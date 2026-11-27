@@ -1,6 +1,6 @@
 ---
 name: tdd
-description: "Use only when the user explicitly asks for TDD, a failing test, or a regression test, OR when the bug has an obvious cheap local test target. Skip when the test path is unclear, expensive, integration-heavy, or not requested."
+description: "仅当用户明确要求 TDD、一个失败的测试或回归测试，或者该 bug 有一个显而易见、成本低的本地测试目标时使用。当测试路径不清楚、成本高、偏重集成或用户没有要求时跳过。"
 disable-model-invocation: true
 ---
 

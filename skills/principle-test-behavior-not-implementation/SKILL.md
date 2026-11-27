@@ -1,6 +1,6 @@
 ---
 name: principle-test-behavior-not-implementation
-description: "Apply when you write, change, or keep a test. Assert what the code's users can observe, so that the test fails when that behavior breaks and keeps passing when only the internals change."
+description: "在你编写、修改或保留一个测试时适用。断言代码的使用者能观察到的东西，这样该行为被破坏时测试会失败，而只有内部实现变化时测试仍然通过。"
 disable-model-invocation: true
 ---
 

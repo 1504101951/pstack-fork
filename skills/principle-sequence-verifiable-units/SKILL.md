@@ -1,6 +1,6 @@
 ---
 name: principle-sequence-verifiable-units
-description: "Apply to multi-step work (sweeps, migrations, runs of similar edits) and to how you stack commits and PRs. Break work into small units that each end in a verifiable state, check each before the next, and order delivery so the sequence proves itself to a reviewer."
+description: "适用于多步工作（批量扫改、迁移、一连串相似的编辑），以及你如何堆叠提交和 PR。把工作拆成每一步都以可验证状态结束的小单元，在做下一步之前检查上一步，并安排交付顺序，让这个顺序本身就向审阅者证明自己。"
 disable-model-invocation: true
 ---
 

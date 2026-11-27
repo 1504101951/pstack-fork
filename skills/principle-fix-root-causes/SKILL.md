@@ -1,6 +1,6 @@
 ---
 name: principle-fix-root-causes
-description: "Apply when debugging. Trace each symptom back to the first place the system went wrong and fix it there. A guard is a fix only when the state it handles is legitimate."
+description: "调试时适用。把每个症状追溯到系统最先出错的地方，并在那里修复。只有当它所处理的状态本身是合法的，防护才算修复。"
 disable-model-invocation: true
 ---
 

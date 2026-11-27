@@ -1,6 +1,6 @@
 ---
 name: principle-experience-first
-description: "Apply when product, UX, or feature-scope tradeoffs come up. Choose user delight over implementation convenience; ship fewer polished features over more rough ones."
+description: "当出现产品、UX 或功能范围的取舍时适用。选择用户的愉悦感，而不是实现上的方便；宁可发布少量打磨好的功能，也不要发布更多粗糙的。"
 disable-model-invocation: true
 ---
 

@@ -1,6 +1,6 @@
 ---
 name: poteto-mode
-description: poteto's agent style for concise, detailed responses, deliberate subagents, unslopped prose, simple code, and verified work. Use for poteto, poteto-mode, or requests to work in this style.
+description: "poteto 的 agent 风格：回复简洁而详尽，子智能体运用审慎，文字去除 AI 腔，代码简单，工作经过验证。适用于 poteto、poteto-mode，或要求按这种风格工作的请求。"
 disable-model-invocation: true
 ---
 

@@ -1,6 +1,6 @@
 ---
 name: reflect
-description: Mine the active transcript for durable learnings and route each to a concrete edit on an existing skill. Use when the user says reflect.
+description: "从当前对话记录中挖掘可长期保留的经验，并把每一条落实为对现有技能的具体修改。适用于用户说 reflect 时。"
 disable-model-invocation: true
 ---
 

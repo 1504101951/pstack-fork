@@ -1,6 +1,6 @@
 ---
 name: setup-pstack
-description: Create the subagents pstack spawns by name (`poteto-agent`, `comment-sicko`) as user-level subagents of the current agent, with the model and reasoning effort the user picks. Use for setup-pstack, "set up pstack", "configure pstack subagents", or when a pstack skill reports a missing `poteto-agent` or `comment-sicko`.
+description: "把 pstack 按名称派出的子智能体（`poteto-agent`、`comment-sicko`）创建为当前 agent 的用户级子智能体，使用用户选定的模型和推理强度。适用于 setup-pstack、\"set up pstack\"、\"configure pstack subagents\"，或者当某个 pstack 技能报告缺少 `poteto-agent` 或 `comment-sicko` 时。"
 disable-model-invocation: true
 ---
 

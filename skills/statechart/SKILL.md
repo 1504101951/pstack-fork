@@ -1,6 +1,6 @@
 ---
 name: statechart
-description: "Check a TLA+ model of a system that moves between states, such as a product flow, a protocol, or a service, and draw it as a Mermaid statechart. The report gives the shortest path to each state that breaks a rule. Use for /statechart, or to show a bug as a path through states."
+description: "检查一个在状态之间转换的系统（如产品流程、协议或服务）的 TLA+ 模型，并把它画成 Mermaid 状态图。报告会给出到达每个违反规则的状态的最短路径。适用于 /statechart，或者把一个 bug 展示为一条穿过各状态的路径。"
 disable-model-invocation: true
 ---
 

@@ -1,6 +1,6 @@
 ---
 name: ketchup
-description: "Catch the user up on what changed in this chat since their last message, in plain words and small visuals. List every item waiting on them with what they need to decide it from the reply alone. Use for /ketchup."
+description: "用平实的话和简单的小图，让用户了解自他上一条消息以来这次对话里发生了什么变化。列出每一项等待他处理的事项，并给出仅凭这条回复就能做决定所需的信息。适用于 /ketchup。"
 disable-model-invocation: true
 ---
 

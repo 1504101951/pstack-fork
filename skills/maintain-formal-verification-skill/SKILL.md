@@ -1,6 +1,6 @@
 ---
 name: maintain-formal-verification-skill
-description: "Bring a project's formal verification back in line with the code after the code changes: find the commits that touched verified code, update the model, harness, or properties to describe the code as it is now, rerun, and say whether each failure is drift in the verification or a bug in the code. Use for /maintain-formal-verification-skill, \"is the model still true to the code\", or after merges and refactors that touched verified code without rechecking it."
+description: "在代码变更之后，让项目的形式化验证重新与代码保持一致：找出改动过被验证代码的提交，更新模型、harness 或性质，使其描述代码现在的样子，重新运行，并说明每个失败是验证本身的漂移，还是代码里的 bug。适用于 /maintain-formal-verification-skill、\"is the model still true to the code\"，或者在合并和重构动过被验证代码却没有重新检查之后。"
 disable-model-invocation: true
 ---
 

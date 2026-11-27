@@ -1,6 +1,6 @@
 ---
 name: reframe
-description: "Teach the expert words for what the operator is building, borrow words from neighboring fields that solved the same problem, then rewrite their description with them. Use for /reframe."
+description: "教给操作者他们正在构建的东西所对应的专家术语，借用相邻领域里解决过同一问题的词汇，然后用这些词重写他们的描述。适用于 /reframe。"
 disable-model-invocation: true
 ---
 

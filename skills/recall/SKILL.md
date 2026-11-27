@@ -1,6 +1,6 @@
 ---
 name: recall
-description: "Reconstruct your recent working context from your own chat history, live state, and the shared record (user reports, prior fixes, incidents), then hand back a tight current-state brief. Use for 'recall my work on X', 'catch me up', 'what have I been working on', 'where did I leave off', before starting or resuming work."
+description: "根据你自己的聊天历史、实时状态和共享记录（用户报告、过往修复、事故）重建你最近的工作上下文，然后交回一份紧凑的当前状态简报。适用于 'recall my work on X'、'catch me up'、'what have I been working on'、'where did I leave off'，以及开始或恢复工作之前。"
 disable-model-invocation: true
 ---
 
