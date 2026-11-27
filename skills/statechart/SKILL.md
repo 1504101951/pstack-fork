@@ -20,6 +20,8 @@ Work in a scratch folder outside the repo. Write a TLA+ spec and its config. The
 
 The first run installs TLC and Java with mise and needs the network.
 
+If `scripts/statechart` exits with code 127, or the run reports that mise is missing, install the runtime the message names and run it again once. If the second run also fails, stop and report the error to the user.
+
 ## Write the spec
 
 - Write each rule that the reader agrees to as an INVARIANT. A rule can be about a screen, a result, a stored value, or a message. If the model has no variable for a rule, add the variable. Never weaken a rule to make it hold.
