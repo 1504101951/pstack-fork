@@ -74,8 +74,8 @@ detect_agents() {
 # 返回：已装过时退出码为 0，否则非 0。
 is_installed() {
   case "$1" in
-    claude) claude plugin list --json 2>/dev/null </dev/null | grep -qE "\"id\": *\"$NAME@$NAME\"" ;;
-    codex) codex plugin marketplace list 2>/dev/null </dev/null | grep -qw "$NAME" ;;
+    claude) claude plugin list --json 2>/dev/null | grep -qE "\"id\": *\"$NAME@$NAME\"" ;;
+    codex) codex plugin marketplace list 2>/dev/null | grep -qw "$NAME" ;;
     agy) [ -d "$AGY_PLUGIN_DIR" ] ;;
   esac
 }
@@ -134,12 +134,11 @@ choose_agents() {
 
 # 函数作用：为 Claude Code 安装 pstack-fork。把 REPO_DIR 添加为市场，再安装其中的同名插件。
 #           两条命令重复运行都会成功。插件从 REPO_DIR 原地加载，所以仓库更新后插件随之更新。
-#           安装类命令的标准输入接到终端：curl | bash 运行时标准输入是脚本本身，不能被子命令读走。
 # 参数：无。
 # 返回：无；命令失败时结束脚本。
 install_claude() {
-  claude plugin marketplace add "$REPO_DIR" </dev/tty
-  claude plugin install "$NAME@$NAME" </dev/tty
+  claude plugin marketplace add "$REPO_DIR"
+  claude plugin install "$NAME@$NAME"
 }
 
 # 函数作用：为 Codex 添加 pstack-fork 市场。Codex 的文档没有给出命令行安装插件的方式，
@@ -147,7 +146,7 @@ install_claude() {
 # 参数：无。
 # 返回：无；命令失败时结束脚本。
 install_codex() {
-  is_installed codex || codex plugin marketplace add "$REPO_DIR" </dev/tty
+  is_installed codex || codex plugin marketplace add "$REPO_DIR"
 }
 
 # 函数作用：为 agy 安装或更新 pstack-fork 插件。
@@ -156,24 +155,33 @@ install_codex() {
 # 参数：无。
 # 返回：无；命令失败时结束脚本。
 install_agy() {
-  agy plugin validate "$REPO_DIR" </dev/tty
-  is_installed agy && agy plugin uninstall "$NAME" </dev/tty
-  agy plugin install "$REPO_DIR" </dev/tty
+  agy plugin validate "$REPO_DIR"
+  is_installed agy && agy plugin uninstall "$NAME"
+  agy plugin install "$REPO_DIR"
 }
 
-# 主流程：准备仓库 → 检测 → 勾选 → 逐个安装 → 打印下一步。
-# 检测结果先存进变量：赋值语句会把 detect_agents 的失败传给 set -e，直接写在参数里则不会。
-prepare_repo
-detected=$(detect_agents)
-# shellcheck disable=SC2086  # 命令名不含空格，按词拆分是有意为之。
-selected=$(choose_agents $detected)
-for cmd in $selected; do
-  echo "安装到 $(agent_field "$cmd" 2) ..."
-  "install_$cmd"
-done
-echo
-echo "安装完成。接下来请在每个 AI 里运行一次 setup-pstack，创建 pstack 需要的子 agent："
-for cmd in $selected; do
-  printf '  %s：%s\n' "$(agent_field "$cmd" 2)" "$(agent_field "$cmd" 4)"
-done
-echo "以后重新运行这条安装命令即可更新。更新后请在每个 AI 里再运行一次 setup-pstack。"
+# 函数作用：主流程：准备仓库 → 检测 → 勾选 → 逐个安装 → 打印下一步。
+#           写成函数并放在脚本最后一行调用：curl | bash 运行时，bash 读完整个函数定义才开始执行，
+#           此后标准输入里已没有脚本内容，子命令读标准输入也读不走脚本。
+#           检测结果先存进变量：赋值语句会把 detect_agents 的失败传给 set -e，直接写在参数里则不会。
+# 参数：无。
+# 返回：无；任何一步失败时结束脚本。
+main() {
+  local detected selected cmd
+  prepare_repo
+  detected=$(detect_agents)
+  # shellcheck disable=SC2086  # 命令名不含空格，按词拆分是有意为之。
+  selected=$(choose_agents $detected)
+  for cmd in $selected; do
+    echo "安装到 $(agent_field "$cmd" 2) ..."
+    "install_$cmd"
+  done
+  echo
+  echo "安装完成。接下来请在每个 AI 里运行一次 setup-pstack，创建 pstack 需要的子 agent："
+  for cmd in $selected; do
+    printf '  %s：%s\n' "$(agent_field "$cmd" 2)" "$(agent_field "$cmd" 4)"
+  done
+  echo "以后重新运行这条安装命令即可更新。更新后请在每个 AI 里再运行一次 setup-pstack。"
+}
+
+main
