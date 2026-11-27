@@ -6,29 +6,15 @@ pstack is a set of skills for writing less, higher-quality code with agents you 
 
 ## Install
 
-Clone the repo first. Keep the clone in place, because the skills reach each other and `agents/` through relative paths.
+Run this in a terminal on macOS or Linux:
 
 ```bash
-git clone https://github.com/1504101951/pstack-fork.git ~/pstack-fork
+curl -fsSL https://raw.githubusercontent.com/1504101951/pstack-fork/main/install.sh | bash
 ```
 
-**agy.** Install the clone as a plugin. [`plugin.json`](./plugin.json) is its manifest.
+[`install.sh`](./install.sh) clones the repo to `~/pstack-fork`, detects which of Claude Code, Codex and agy you have, asks which to install, and installs pstack-fork into each one you pick. Run the same command again to update.
 
-```bash
-agy plugin install ~/pstack-fork
-```
-
-agy has no setting that keeps a skill from being picked automatically, so it may start a pstack skill without a slash command.
-
-**Claude Code and Codex.** Link each folder in `skills/` into the agent's user skills folder.
-
-```bash
-SKILLS_DIR=~/.claude/skills   # Codex: ~/.agents/skills
-mkdir -p "$SKILLS_DIR"
-for s in ~/pstack-fork/skills/*/; do ln -sfn "$s" "$SKILLS_DIR/$(basename "$s")"; done
-```
-
-Claude Code reads `disable-model-invocation` in each `SKILL.md`, and Codex reads `agents/openai.yaml` in each skill folder, so both run these skills only when you invoke them.
+Claude Code and Codex get each skill linked into their skills folder, and run the skills only when you invoke them. agy installs the repo as a plugin through [`plugin.json`](./plugin.json). agy has no setting that keeps a skill from being picked automatically, so it may start a pstack skill without a slash command.
 
 ## Get started
 
