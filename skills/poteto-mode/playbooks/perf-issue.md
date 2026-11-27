@@ -2,7 +2,7 @@
 
 **You own the measurement story. Plan, review, verify the numbers.** Tie every fix to a measurement, don't read source instead of measuring.
 
-1. Capture a baseline trace on the matching surface by driving the app as a user would (launch it, click or run commands, capture screenshots or output as evidence). When the project has a verify skill (see `/create-verification-skill`), follow it.
+1. Capture a baseline trace on the matching surface by driving the app as a user would (launch it, click or run commands, capture screenshots or output as evidence). When the project has a verify skill (see `create-verification-skill`), follow it.
 2. Trace the code to ground hypotheses. Don't claim a perf ceiling without running it first.
    Try the performance mantras in order, cheapest first:
    1. Don't do it. Stop work whose result nothing uses rather than cheapening it.

@@ -1,0 +1,20 @@
+{
+  "name": "pstack-fork",
+  "interface": {
+    "displayName": "pstack-fork"
+  },
+  "plugins": [
+    {
+      "name": "pstack-fork",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}

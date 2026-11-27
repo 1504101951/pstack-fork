@@ -1,0 +1,23 @@
+{
+  "name": "pstack-fork",
+  "version": "0.1.0",
+  "description": "Fork of pstack. Write less, higher-quality code with rigorous agent workflows you can parallelize with confidence.",
+  "author": {
+    "name": "1504101951",
+    "url": "https://github.com/1504101951"
+  },
+  "homepage": "https://github.com/1504101951/pstack-fork",
+  "repository": "https://github.com/1504101951/pstack-fork",
+  "license": "MIT",
+  "keywords": ["pstack", "poteto-mode", "workflow", "principles", "agent-style", "subagents", "unslop"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "pstack-fork",
+    "shortDescription": "Rigorous agent workflows, principles and subagents",
+    "longDescription": "pstack-fork bundles the poteto-mode router, its playbooks and principles, and a set of manual-invocation skills for investigating, fixing, refactoring and verifying code.",
+    "developerName": "1504101951",
+    "category": "Developer Tools",
+    "capabilities": ["Interactive", "Read", "Write"],
+    "websiteURL": "https://github.com/1504101951/pstack-fork"
+  }
+}

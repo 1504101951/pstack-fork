@@ -1,0 +1,14 @@
+{
+  "name": "pstack-fork",
+  "owner": {
+    "name": "1504101951"
+  },
+  "description": "Marketplace for the pstack-fork plugin.",
+  "plugins": [
+    {
+      "name": "pstack-fork",
+      "source": ".",
+      "description": "Fork of pstack. Write less, higher-quality code with rigorous agent workflows you can parallelize with confidence."
+    }
+  ]
+}

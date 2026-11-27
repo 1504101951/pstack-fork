@@ -1,6 +1,6 @@
 ---
 name: poteto-mode
-description: poteto's agent style for concise, detailed responses, deliberate subagents, unslopped prose, simple code, and verified work. Use for poteto, /poteto-mode, or requests to work in this style.
+description: poteto's agent style for concise, detailed responses, deliberate subagents, unslopped prose, simple code, and verified work. Use for poteto, poteto-mode, or requests to work in this style.
 disable-model-invocation: true
 ---
 
@@ -76,9 +76,9 @@ Read the leaf skill in full for any principle you apply. Each entry names when i
 
 ## Subagents
 
-**Spawn the `poteto-agent` subagent for any subagent you spawn directly inside a playbook step.** If this agent has no subagent named `poteto-agent`, stop and tell the user to run `/setup-pstack`. The chat that receives `/poteto-mode` runs the playbook itself. A routed workflow skill that says how to spawn its subagents keeps its own instructions.
+**Spawn the `poteto-agent` subagent for any subagent you spawn directly inside a playbook step.** If this agent has no subagent named `poteto-agent`, stop and tell the user to run the `setup-pstack` skill. The chat running `poteto-mode` runs the playbook itself. A routed workflow skill that says how to spawn its subagents keeps its own instructions.
 
-**Defaults for every subagent.** Run it in the background, give it the session's MCP servers, and pass file pointers, not inlined context. `poteto-agent` and `comment-sicko` run on the model `/setup-pstack` set for them. Every other subagent runs on the parent's model.
+**Defaults for every subagent.** Run it in the background, give it the session's MCP servers, and pass file pointers, not inlined context. `poteto-agent` and `comment-sicko` run on the model `setup-pstack` set for them. Every other subagent runs on the parent's model.
 
 You own every subagent's work. Review the diff and write your own summary. A second opinion is the same prompt given to a fresh subagent that has not seen your work.
 
