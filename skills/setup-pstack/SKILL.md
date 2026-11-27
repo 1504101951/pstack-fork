@@ -1,13 +1,14 @@
 ---
 name: setup-pstack
 description: Create the subagents pstack spawns by name (`poteto-agent`, `comment-sicko`) as user-level subagents of the current agent, with the model and reasoning effort the user picks. Use for /setup-pstack, "set up pstack", "configure pstack subagents", or when a pstack skill reports a missing `poteto-agent` or `comment-sicko`.
+disable-model-invocation: true
 ---
 
 # Setup pstack
 
 pstack spawns two subagents by name. `poteto-agent` runs delegated work inside a `/poteto-mode` run. `comment-sicko` reviews comments for **no-comments**. Their prompts ship with pstack. This skill installs them as user-level subagents of the agent you are running in, with the model and effort the user picks.
 
-This skill relies on you knowing your own agent's subagent format and user-level folder. If a subagent you wrote does not show up in step 4, add that agent's folder and format to this file.
+This skill relies on you knowing your own agent's subagent format and user-level folder. If a subagent you wrote does not show up in step 4, tell the user which folder and format you used.
 
 ## Steps
 

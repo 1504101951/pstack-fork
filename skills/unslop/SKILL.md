@@ -8,7 +8,7 @@ disable-model-invocation: true
 
 Edit text to remove AI patterns. Scan for the patterns below, then rewrite. Preserve meaning and match the intended tone.
 
-Rule numbers are stable ids that other skills cite. A removed rule leaves a gap.
+Rule numbers are stable ids. A removed rule leaves a gap.
 
 3. No trailing "-ing" phrases that add no fact ("highlighting...", "ensuring...").
 5. No vague attributions ("experts believe"). Name the source or delete.

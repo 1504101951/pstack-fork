@@ -47,6 +47,8 @@ Shape: one or two questions with 4-6 options each, multiple selections allowed f
 
 Don't dump 20 questions.
 
+If the history and the answers do not show where the mode should apply and how the user invokes it, ask both before drafting: which projects or kinds of work it covers, and whether it runs only on `/<handle>-mode`.
+
 ### 3. Cluster findings
 
 Group the combined signals into sections. Common ones (use only what applies):
@@ -70,7 +72,7 @@ Write the SKILL.md in the Agent Skills format. Placement:
 - Handle: the user's first name or chosen identifier.
 - Frontmatter `description`: trigger on their name + `/<handle>-mode` + "work in their style", not on generic keywords like "write code" or "review PR".
 - Frontmatter formatting: follow standard YAML rules. Keep `description` as one YAML scalar. Quote it or use `description: >-` with indented continuation lines when punctuation or wrapping requires it.
-- Frontmatter `disable-model-invocation: true` by default. Opt out only if the user explicitly wants their mode to apply on every turn.
+- Frontmatter `disable-model-invocation: true` by default, plus `agents/openai.yaml` in the skill folder containing `policy:` with `allow_implicit_invocation: false`. Opt out of both only if the user explicitly wants their mode to apply on every turn.
 
 ### 5. Iterate on prose
 
