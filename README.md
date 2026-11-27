@@ -2,20 +2,33 @@
 
 pstack-fork is a fork of [pstack](https://github.com/cursor/plugins/tree/b1fbf4b60ac6813b4583ccc356850dafcf492665/pstack) by Lauren Tan ([poteto](https://x.com/poteto)), taken from `cursor/plugins` at commit `b1fbf4b`. It is released under the MIT license. The original copyright and permission notice is kept in [LICENSE](./LICENSE).
 
-pstack is a set of skills for writing less, higher-quality code with agents you can parallelize with confidence. pstack-fork works in any agent that reads [Agent Skills](https://agentskills.io): Antigravity CLI (`agy`) first, and Claude Code, Codex and Cursor too. The skills describe what to do, not which vendor tool to call, so each agent uses its own tools.
+pstack is a set of skills for writing less, higher-quality code with agents you can parallelize with confidence. pstack-fork supports Antigravity CLI (`agy`), Claude Code and Codex. The skills describe what to do, not which vendor tool to call, so each agent uses its own tools.
 
 ## Install
 
-Clone the repo, then link each folder in `skills/` into your agent's user skills folder. Keep the clone in place. The skills reach each other and `agents/` through relative paths.
+Clone the repo first. Keep the clone in place, because the skills reach each other and `agents/` through relative paths.
 
 ```bash
 git clone https://github.com/1504101951/pstack-fork.git ~/pstack-fork
-SKILLS_DIR=~/.gemini/config/skills   # agy. Claude Code: ~/.claude/skills
+```
+
+**agy.** Install the clone as a plugin. [`plugin.json`](./plugin.json) is its manifest.
+
+```bash
+agy plugin install ~/pstack-fork
+```
+
+agy has no setting that keeps a skill from being picked automatically, so it may start a pstack skill without a slash command.
+
+**Claude Code and Codex.** Link each folder in `skills/` into the agent's user skills folder.
+
+```bash
+SKILLS_DIR=~/.claude/skills   # Codex: ~/.agents/skills
 mkdir -p "$SKILLS_DIR"
 for s in ~/pstack-fork/skills/*/; do ln -sfn "$s" "$SKILLS_DIR/$(basename "$s")"; done
 ```
 
-An agent that installs Agent Plugins can install the repo as a plugin instead. [`plugin.json`](./plugin.json) is its manifest.
+Claude Code reads `disable-model-invocation` in each `SKILL.md`, and Codex reads `agents/openai.yaml` in each skill folder, so both run these skills only when you invoke them.
 
 ## Get started
 
@@ -28,11 +41,11 @@ An agent that installs Agent Plugins can install the repo as a plugin instead. [
 
 ## Skills
 
-Every skill is invoked by its slash command. `/poteto-mode` also calls the ones its playbooks need.
+Invoke a skill by its slash command, or with `$<name>` in Codex. `/poteto-mode` also calls the ones its playbooks need.
 
 **Entry and setup**
 
-- [`/poteto-mode`](./skills/poteto-mode/SKILL.md): matches a task to one of 22 playbooks and runs them.
+- [`/poteto-mode`](./skills/poteto-mode/SKILL.md): matches a task to one of 16 playbooks and runs them.
 - [`/setup-pstack`](./skills/setup-pstack/SKILL.md): creates the subagents pstack spawns by name.
 
 **Understand**

@@ -1,21 +1,7 @@
 {
-  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
   "name": "pstack-fork",
+  "displayName": "pstack-fork",
   "version": "0.1.0",
-  "description": "Fork of pstack for any agent that reads Agent Skills. Write less, higher-quality code with rigorous agent workflows you can parallelize with confidence.",
-  "author": {
-    "name": "1504101951"
-  },
-  "homepage": "https://github.com/1504101951/pstack-fork",
-  "repository": "https://github.com/1504101951/pstack-fork",
-  "license": "MIT",
-  "keywords": [
-    "pstack",
-    "poteto-mode",
-    "workflow",
-    "principles",
-    "agent-style",
-    "subagents",
-    "unslop"
-  ]
+  "description": "Fork of pstack. Write less, higher-quality code with rigorous agent workflows you can parallelize with confidence."
 }
